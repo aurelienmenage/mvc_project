@@ -1,22 +1,22 @@
 <?php
 
 class User {
-    private $db;
+    private $Database;
 
-    public function __construct($db) 
+    public function __construct($Database) 
     {
-        $this->db = $db;
+        $this->Database = $Database;
     }
 
     public function getAllUsers() {
         $sql = "SELECT * FROM users";
-        $stmt = $this->db->query($sql);
+        $stmt = $this->Database->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getUserById($id){
         $sql = "SELECT * FROM users WHERE id = :id";
-        $stmt = $this->db->prepare($sql);
+        $stmt = $this->Database->prepare($sql);
         $stmt->execute(["id" => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }

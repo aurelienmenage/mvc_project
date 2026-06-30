@@ -1,6 +1,6 @@
 <?php
 
-require_once "/config/db.php";//on inclut la base de données
+require_once "/config/Database.php";//on inclut la base de données
 
 class Router {
 
