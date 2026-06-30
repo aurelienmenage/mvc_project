@@ -1,16 +1,19 @@
 <?php
 
-class UserController {
-    private $models;
+require_once "../app/repositories/repository.php";
 
-    public function __construct($userModels)
+
+class UserController {
+    private $repository;
+
+    public function __construct()
     {
-        $this->models = $userModels;
+        $this->repository = new $repository();
     }
 
-    public function listUsers() {// on affiche la liste des utilisateurs
-        $users = $this->models->getAllUsers();
-        require "views/user_list.php";
+    public function index() {// on affiche la liste des utilisateurs
+        $users = $this->repository->getAllUsers();
+        require "../app/views/user/index.php";
     }
 
     public function detailUser(){ //on affiche le détail d'un utilisateur
