@@ -16,7 +16,7 @@
     <a href="/views/create_user.php">Ajouter un utilisateur</a>
 
     <ul>
-        <?php foreach ($users as $user): ?>
+        <?php foreach ($user as $user): ?>
 
             <li><?= htmlspecialchars($user["id"]) ?></li>
             <li><?= htmlspecialchars($user["name"]) ?></li>
